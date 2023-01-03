@@ -10,7 +10,6 @@
 import { reactive, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import Menu from '@com/Menu/Menu.vue'
-
 // 非菜单路由
 const noMenusRouter = ref<string[]>(['/login'])
 // 路由信息
