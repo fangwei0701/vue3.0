@@ -1,19 +1,18 @@
-import axios from 'axios';
+import axios from "axios";
 
 // 创建请求实例
 const instance = axios.create({
-  baseURL: '/',
+  baseURL: "/",
   // 指定请求超时的毫秒数
   timeout: 1000,
   // 表示跨域请求时是否需要使用凭证
   withCredentials: false,
   // 请求头，headers
   headers: {
-    'X-Requested-With': 'XMLHttpRequest',
-    'Content-Type': 'application/json'
-  }
+    "X-Requested-With": "XMLHttpRequest",
+    "Content-Type": "application/json",
+  },
 });
-
 
 // 前置拦截器（发起请求之前的拦截）
 instance.interceptors.request.use(
@@ -22,7 +21,7 @@ instance.interceptors.request.use(
   },
   (error) => {
     return Promise.reject(error);
-  },
+  }
 );
 
 // 后置拦截器（获取到响应时的拦截）
@@ -37,7 +36,7 @@ instance.interceptors.response.use(
     }
     const { message } = error;
     return Promise.reject(error);
-  },
+  }
 );
 
 /**
@@ -47,7 +46,7 @@ instance.interceptors.response.use(
  */
 export const post = (url: string, data = {}, params = {}) => {
   return instance({
-    method: 'post',
+    method: "post",
     url,
     data,
     params,
@@ -60,7 +59,7 @@ export const post = (url: string, data = {}, params = {}) => {
  */
 export const get = (url: string, params = {}) => {
   return instance({
-    method: 'get',
+    method: "get",
     url,
     params,
   });
@@ -73,7 +72,7 @@ export const get = (url: string, params = {}) => {
  */
 export const put = (url: string, data = {}, params = {}) => {
   return instance({
-    method: 'put',
+    method: "put",
     url,
     params,
     data,
@@ -86,7 +85,7 @@ export const put = (url: string, data = {}, params = {}) => {
  */
 export const _delete = (url: string, params = {}) => {
   return instance({
-    method: 'delete',
+    method: "delete",
     url,
     params,
   });

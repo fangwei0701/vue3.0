@@ -47,38 +47,38 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive, ref } from 'vue'
-import { useRouter } from 'vue-router'
-import { menus } from '@/assets/menu'
-import Header from '@com/Header/Header.vue'
+import { reactive, ref } from "vue";
+import { useRouter } from "vue-router";
+import { menus } from "@/assets/menu";
+import Header from "@com/Header/Header.vue";
 // 非菜单路由
-const noMenusRouter = ref<string[]>(['/login'])
+const noMenusRouter = ref<string[]>(["/login"]);
 // 路由信息
-const router = useRouter()
+const router = useRouter();
 // 菜单状态
 const menuState = reactive({
   showMenu: true,
-  defaultOpen: ['/dashboard'],
-  currentPath: '/dashboard',
-})
+  defaultOpen: ["/dashboard"],
+  currentPath: "/dashboard",
+});
 // 是否存在token
-const isToken = true
+const isToken = true;
 
 router.beforeEach((to, from, next) => {
   console.log(to);
-  if (to.path == '/login') {
-    next() // 如果路径是/login 则正常执行
+  if (to.path == "/login") {
+    next(); // 如果路径是/login 则正常执行
   } else {
     if (!isToken) {
-      next({ path: '/login' }) // 如果没有TOKEN，则跳至登录页面
+      next({ path: "/login" }); // 如果没有TOKEN，则跳至登录页面
     } else {
-      next() // 否则继续执行
+      next(); // 否则继续执行
     }
   }
-  menuState.showMenu = !noMenusRouter.value.includes(to.path)
-  menuState.currentPath = to.path
-  document.title = ''
-})
+  menuState.showMenu = !noMenusRouter.value.includes(to.path);
+  menuState.currentPath = to.path;
+  document.title = "";
+});
 </script>
 
 <style scoped lang="scss">
