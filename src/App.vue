@@ -7,7 +7,7 @@
   </el-container>
 </template>
 <script lang="ts" setup>
-import { reactive, ref } from 'vue'
+import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import Menu from '@com/Menu/Menu.vue'
 // 非菜单路由

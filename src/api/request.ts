@@ -45,7 +45,7 @@ instance.interceptors.response.use(
  * @param {object} data
  * @param {object} params
  */
-export const post = (url, data = {}, params = {}) => {
+export const post = (url: string, data = {}, params = {}) => {
   return instance({
     method: 'post',
     url,
@@ -58,7 +58,7 @@ export const post = (url, data = {}, params = {}) => {
  * @param {string} url
  * @param {object} params
  */
-export const get = (url, params = {}) => {
+export const get = (url: string, params = {}) => {
   return instance({
     method: 'get',
     url,
@@ -71,7 +71,7 @@ export const get = (url, params = {}) => {
  * @param {object} data
  * @param {object} params
  */
-export const put = (url, data = {}, params = {}) => {
+export const put = (url: string, data = {}, params = {}) => {
   return instance({
     method: 'put',
     url,
@@ -84,7 +84,7 @@ export const put = (url, data = {}, params = {}) => {
  * @param {string} url
  * @param {object} params
  */
-export const _delete = (url, params = {}) => {
+export const _delete = (url: string, params = {}) => {
   return instance({
     method: 'delete',
     url,

@@ -80,6 +80,7 @@
 import { ref, reactive, onUnmounted } from 'vue'
 import { LoginForm } from './index.type'
 import { userStore } from '@/store/user'
+import  api from '@/api/index';
 
 // 当前登录方式
 const loginWay = ref<string>('verifyCode')
@@ -140,7 +141,10 @@ const handleSwitchWay = (type: string): void => {
 }
 
 // 登录
-const handleLogin = (): void => {
+const handleLogin = async () => {
+
+  // const res = await api.login(null);
+  
   if (handleValiField()) return
   
   // 设置用户信息stroe
